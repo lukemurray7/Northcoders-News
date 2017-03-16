@@ -9,7 +9,7 @@ const ArticleList = React.createClass({
   },
   render () {
     return (
-      <div id='ArticleList'>
+      <div className="container">
         {this.generateArticles(this.filterArticles(this.props.articles, this.props.params.topic))}
       </div>
     );
@@ -36,7 +36,6 @@ const ArticleList = React.createClass({
     });
   }
 });
-
 
 function mapDispatchToProps (dispatch) {
   return {

@@ -14,6 +14,7 @@ import reducer from './reducer/index.reducer';
 
 import './css/bulma.css';
 import './css/font-awesome.css';
+import './css/app.css';
 
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, logger));

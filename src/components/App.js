@@ -5,7 +5,12 @@ const App = React.createClass({
   render: function () {
     return (
       <div>
-        <h3 className='title is-3'>All Articles</h3>
+        <header className="header">
+          <div className="header-title">
+            <img className="image" src="logo.png"/>
+            <h3 className="header-text">News</h3>
+          </div>
+        </header>
         <NavBar />
         {this.props.children}
       </div>

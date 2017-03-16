@@ -9,8 +9,8 @@ class NavBar extends Component {
   }
   render () {
     return (
-      <nav>
-        <ul>
+      <nav className="nav has-shadow">
+        <ul className="nav-center">
           {this.generateTopics(this.props.topics)}
         </ul>
       </nav>
@@ -20,7 +20,8 @@ class NavBar extends Component {
     return [{title: 'all topics'}].concat(topics).map((topic, i) => {
       topic.title = topic.title.toLowerCase();
       return (
-        <li key={i}
+        <li className="nav-item"
+          key={i}
           value={topic.title}>
             <NavLink to={`/topics/${topic.title}`}>
               {topic.title}

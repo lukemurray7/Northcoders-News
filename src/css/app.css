@@ -1,0 +1,41 @@
+.header {
+  background-color: #23D160;
+  text-align: center;
+  padding: 2em;
+}
+
+.nav {
+  margin-bottom: 2em;
+}
+
+.header-title {
+  display: inline-block;
+  text-align: left;
+}
+
+.image {
+  width: 10em;
+  display: inline-block;
+  margin: .5em auto;
+}
+
+.header-text {
+  color: #C31432;
+  font-size: 2.2em;
+}
+
+.active {
+  color: #C31432;
+}
+
+.media {
+  align-items: center;
+}
+
+.block {
+  display: block;
+}
+
+.fa-arrow-circle-up {
+  margin: 0;
+}
