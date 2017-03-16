@@ -21,6 +21,7 @@ const ArticleList = React.createClass({
           title={article.title}
           votes={article.votes}
           comments={article.comments}
+          article_id={article._id}
         />
       );
     });
