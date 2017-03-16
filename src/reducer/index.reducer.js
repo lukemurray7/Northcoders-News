@@ -5,8 +5,7 @@ import commentsReducer from './comments.reducer';
 import topicsReducer from './topics.reducer';
 
 export default combineReducers({
-
-    articles: articlesReducer,
-    comments: commentsReducer,
-    topics: topicsReducer
-})
+	articles: articlesReducer,
+	comments: commentsReducer,
+	topics: topicsReducer
+});

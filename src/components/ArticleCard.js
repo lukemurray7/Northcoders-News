@@ -17,7 +17,13 @@ const ArticleCard = function (props) {
         </div>
       </article>
     </div>
-  )
-}
+  );
+};
+
+ArticleCard.propTypes = {
+  votes: React.PropTypes.number.isRequired,
+  title: React.PropTypes.string.isRequired,
+  comments: React.PropTypes.number.isRequired
+};
 
 export default ArticleCard;

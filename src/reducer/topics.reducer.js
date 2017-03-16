@@ -1,31 +1,33 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  topics: [],
+  data: [],
   loading: false,
   error: null
 };
 
 function topicsReducer (prevState = initialState, action) {
-  const newState = Object.assign({}, prevState);
-  if (action.type === types.FETCH_TOPICS_REQUEST) {
-    newState.loading = true;
+  switch (action.type) {
+    case types.FETCH_COMMENTS_REQUEST: {
+      const newState = Object.assign({}, prevState);
+      newState.loading = true;
+      return newState;
+    }
+    case types.FETCH_TOPICS_SUCCESS: {
+      const newState = Object.assign({}, prevState);
+      newState.data = action.data;
+      newState.loading = false;
+      return newState;
+    }
+    case types.FETCH_TOPICS_ERROR: {
+      const newState = Object.assign({}, prevState);
+      newState.error = action.data;
+      newState.loading = false;
+      return newState;
+    }
+    default:
+      return prevState;
   }
-
-  if (action.type === types.FETCH_TOPICS_SUCCESS) {
-    newState.topics = action.data;
-    newState.loading = false;
-  }
-
-  if (action.type === types.FETCH_TOPICS_ERROR) {
-    newState.error = action.data;
-    newState.loading = false;
-  }
-  return newState;
 }
 
 export default topicsReducer;
-
-
-
-// reducer for articles, comments, topics

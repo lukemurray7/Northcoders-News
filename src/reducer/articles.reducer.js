@@ -1,31 +1,33 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  articles: [],
+  data: [],
   loading: false,
   error: null
 };
 
 function articlesReducer (prevState = initialState, action) {
-  const newState = Object.assign({}, prevState);
-  if (action.type === types.FETCH_ARTICLES_REQUEST) {
-    newState.loading = true;
+  switch (action.type) {
+    case types.FETCH_ARTICLES_REQUEST: {
+      const newState = Object.assign({}, prevState);
+      newState.loading = true;
+      return newState;
+    }
+    case types.FETCH_ARTICLES_SUCCESS: {
+      const newState = Object.assign({}, prevState);
+      newState.data = action.data;
+      newState.loading = false;
+      return newState;
+    }
+    case types.FETCH_ARTICLES_ERROR: {
+      const newState = Object.assign({}, prevState);
+      newState.error = action.data;
+      newState.loading = false;
+      return newState;
+    }
+    default:
+      return prevState;
   }
-
-  if (action.type === types.FETCH_ARTICLES_SUCCESS) {
-    newState.articles = action.data;
-    newState.loading = false;
-  }
-
-  if (action.type === types.FETCH_ARTICLES_ERROR) {
-    newState.error = action.data;
-    newState.loading = false;
-  }
-  return newState;
 }
 
 export default articlesReducer;
-
-
-
-// reducer for articles, comments, topics
