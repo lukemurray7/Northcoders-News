@@ -18,10 +18,11 @@ class NavBar extends Component {
   }
   generateTopics (topics) {
     return [{title: 'all topics'}].concat(topics).map((topic, i) => {
+      topic.title = topic.title.toLowerCase();
       return (
         <li key={i}
           value={topic.title}>
-            <NavLink to={`topics/${topic.title}`}>
+            <NavLink to={`/topics/${topic.title}`}>
               {topic.title}
             </NavLink>
         </li>

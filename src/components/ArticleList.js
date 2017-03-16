@@ -10,7 +10,7 @@ const ArticleList = React.createClass({
   render () {
     return (
       <div id='ArticleList'>
-        {this.generateArticles(this.props.articles)}
+        {this.generateArticles(this.filterArticles(this.props.articles, this.props.params.topic))}
       </div>
     );
   },
@@ -24,13 +24,18 @@ const ArticleList = React.createClass({
         />
       );
     });
+  },
+  filterArticles (articles, topic) {
+    articles = articles.sort((a, b) => {
+      return b.votes - a.votes;
+    });
+    if (!topic || topic === 'all topics') return articles;
+    return articles.filter((article) => {
+      return article.belongs_to === topic;
+    });
   }
 });
 
-ArticleList.propTypes = {
-  getArticles: React.PropTypes.func.isRequired,
-  articles: React.PropTypes.array.isRequired
-};
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -45,5 +50,13 @@ function mapStateToProps (state) {
     articles: state.articles.data
   };
 }
+
+ArticleList.propTypes = {
+  getArticles: React.PropTypes.func.isRequired,
+  articles: React.PropTypes.array.isRequired
+};
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
