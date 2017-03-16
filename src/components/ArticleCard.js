@@ -12,6 +12,8 @@ const ArticleCard = function (props) {
           <div className='content'>
             <h3 className='title is-3'>{props.title}</h3>
           </div>
+          <h4>Comments</h4>
+            {props.comments}
         </div>
       </article>
     </div>
