@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import logo from '../../public/logo.png';
 
 const App = React.createClass({
   render: function () {
@@ -7,7 +8,7 @@ const App = React.createClass({
       <div>
         <header className="header">
           <div className="header-title">
-            <img className="image" src="logo.png"/>
+            <img className="image" src={logo}/>
             <h3 className="header-text">News</h3>
           </div>
         </header>
@@ -17,5 +18,9 @@ const App = React.createClass({
     );
   }
 });
+
+App.propTypes = {
+  children: React.PropTypes.element.isRequired
+};
 
 export default App;

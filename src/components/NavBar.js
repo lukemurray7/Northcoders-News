@@ -17,7 +17,7 @@ class NavBar extends Component {
     );
   }
   generateTopics (topics) {
-    return [{title: 'all topics'}].concat(topics).map((topic, i) => {
+    return [{title: 'all-topics'}].concat(topics).map((topic, i) => {
       topic.title = topic.title.toLowerCase();
       return (
         <li className="nav-item"

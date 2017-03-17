@@ -7,7 +7,7 @@ const ArticleCard = function (props) {
     <div className='box'>
       <article className='media'>
         <VoteButtons votes={props.votes}
-        voteArticle={props.voteArticle.bind(null, props.article_id)}
+          voteArticle={props.voteArticle.bind(null, props.article_id)}
         />
         <NavLink to={`/articles/${props.article_id}`}>
           <div className='media-content'>
@@ -27,7 +27,9 @@ ArticleCard.propTypes = {
   votes: React.PropTypes.number.isRequired,
   title: React.PropTypes.string.isRequired,
   comments: React.PropTypes.number,
-  body: React.PropTypes.string
+  body: React.PropTypes.string,
+  voteArticle: React.PropTypes.func.isRequired,
+  article_id: React.PropTypes.string.isRequired
 };
 
 export default ArticleCard;
