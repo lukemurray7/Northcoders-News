@@ -1,7 +1,8 @@
 import React from 'react';
-import {fetchAllArticles} from '../actions/actions';
+import {fetchAllArticles, voteArticle} from '../actions/actions';
 import {connect} from 'react-redux';
 import ArticleCard from './ArticleCard';
+import {getTopArticles} from '../reducer/articles.reducer';
 
 const ArticleList = React.createClass({
   componentDidMount () {
@@ -22,6 +23,7 @@ const ArticleList = React.createClass({
           votes={article.votes}
           comments={article.comments}
           article_id={article._id}
+          voteArticle={this.props.voteArticle}
         />
       );
     });
@@ -41,13 +43,16 @@ function mapDispatchToProps (dispatch) {
   return {
     getArticles: () => {
       dispatch(fetchAllArticles());
+    },
+    voteArticle: (id, vote) => {
+      dispatch(voteArticle(id, vote))
     }
   };
 }
 
 function mapStateToProps (state) {
   return {
-    articles: state.articles.data
+    articles: getTopArticles(state, 10)
   };
 }
 

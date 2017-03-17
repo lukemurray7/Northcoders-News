@@ -1,15 +1,14 @@
 import React from 'react';
 import NavLink from './NavLink';
+import VoteButtons from './VoteButtons';
 
 const ArticleCard = function (props) {
   return (
     <div className='box'>
       <article className='media'>
-        <div className='media-left'>
-          <i className="fa fa-arrow-circle-up block"/>
-          <span>{props.votes}</span>
-          <i className="fa fa-arrow-circle-down block"/>
-        </div>
+        <VoteButtons votes={props.votes}
+        voteArticle={props.voteArticle.bind(null, props.article_id)}
+        />
         <NavLink to={`/articles/${props.article_id}`}>
           <div className='media-content'>
             <div className='content'>
