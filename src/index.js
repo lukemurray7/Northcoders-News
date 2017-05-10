@@ -13,7 +13,7 @@ import NotFound from './components/NotFound';
 import reducer from './reducer/index.reducer';
 
 // import './css/bulma.css';
-// import './css/font-awesome.css';
+import './css/font-awesome.css';
 import './css/test.css';
 
 const logger = createLogger();

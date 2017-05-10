@@ -1,24 +1,29 @@
 import React from 'react';
-import {fetchAllArticles, voteArticle} from '../actions/actions';
-import {connect} from 'react-redux';
+import { fetchAllArticles, voteArticle } from '../actions/actions';
+import { connect } from 'react-redux';
 import ArticleCard from './ArticleCard';
-import {getTopArticles} from '../reducer/articles.reducer';
+import { getTopArticles } from '../reducer/articles.reducer';
 
 const ArticleList = React.createClass({
-  componentDidMount () {
-    this.props.getArticles ();
+  componentDidMount() {
+    this.props.getArticles();
   },
-  render () {
+  render() {
     return (
-      <div className="spacer">
-        {this.generateArticles(this.filterArticles(this.props.articles, this.props.params.topic))}
+      <div className="content">
+        <div className="spacer">
+          <div classID="siteTable" className="sitetable linklisting">
+            {this.generateArticles(this.filterArticles(this.props.articles, this.props.params.topic))}
+          </div>
+        </div>
       </div>
     );
   },
-  generateArticles (articles) {
+  generateArticles(articles) {
     return articles.map((article, i) => {
-      return ( 
+      return (
         <ArticleCard key={i}
+          num={i + 1}
           title={article.title}
           votes={article.votes}
           comments={article.comments}
@@ -28,7 +33,7 @@ const ArticleList = React.createClass({
       );
     });
   },
-  filterArticles (articles, topic) {
+  filterArticles(articles, topic) {
     if (!topic || topic === 'all-topics') return articles;
     return articles.filter((article) => {
       return article.belongs_to === topic;
@@ -36,7 +41,7 @@ const ArticleList = React.createClass({
   }
 });
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     getArticles: () => {
       dispatch(fetchAllArticles());
@@ -47,7 +52,7 @@ function mapDispatchToProps (dispatch) {
   };
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     articles: getTopArticles(state, 50)
   };

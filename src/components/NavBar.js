@@ -11,11 +11,64 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="header">
+        <div id="sr-header-area">
+          <div className="width-clip">
+            <div className="mySubreddits">
+              <span>MY SUBREDDITS</span>
+            </div>
+            <div className="sr-list">
+              <ul className="flat-list sr-bar">
+                <li>All</li>
+                  <span className="seperator">-</span>
+                <li>Funny</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+              </ul>
+              <span className="seperator">&nbsp;|&nbsp;</span>
+                <ul className="flat-list sr-bar">
+                <li>All</li>
+                  <span className="seperator">-</span>
+                <li>Funny</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                  <span className="seperator">-</span>
+                <li>Random</li>
+                
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div className="header-bottom-left">
           <img className="northcoders-image" src={logo} />
           <h3 className="news-text">News</h3>
-        <ul className="tabmenu">
-          {this.generateTopics(this.props.topics)}
-        </ul>
+          <ul className="tabmenu">
+            {this.generateTopics(this.props.topics)}
+          </ul>
+        </div>
+        <div className="header-bottom-right">
+          <span className="user">Want to join? Log in or sign up in seconds.</span>
+        </div>
       </nav>
     );
   }
