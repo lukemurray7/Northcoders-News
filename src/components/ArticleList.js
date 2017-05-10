@@ -29,6 +29,7 @@ const ArticleList = React.createClass({
           comments={article.comments}
           article_id={article._id}
           voteArticle={this.props.voteArticle}
+          createdBy={article.created_by}
         />
       );
     });

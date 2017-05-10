@@ -2,7 +2,7 @@ import React from 'react';
 import NavLink from './NavLink';
 
 
-const ArticleCard = function (props) {
+const EachArticle = function (props) {
   return (
 
     <div className='thing link'>
@@ -16,11 +16,8 @@ const ArticleCard = function (props) {
       <NavLink to={`/articles/${props.article_id}`}>
         <div className="entry">
           <p className="title">{props.title}</p>
+          <p className="article-body">{props.body}</p>
           <p className="tagline">submitted 2 hours ago by {props.createdBy}</p>
-          <ul className="flat-list buttons">
-            <li className="comments">{props.comments} comments</li>
-            <li className="share">Share</li>
-          </ul>
         </div>
       </NavLink>
       <div className="child"></div>
@@ -31,7 +28,7 @@ const ArticleCard = function (props) {
   );
 };
 
-ArticleCard.propTypes = {
+EachArticle.propTypes = {
   votes: React.PropTypes.number.isRequired,
   title: React.PropTypes.string.isRequired,
   comments: React.PropTypes.number,
@@ -40,7 +37,7 @@ ArticleCard.propTypes = {
   article_id: React.PropTypes.string.isRequired
 };
 
-export default ArticleCard;
+export default EachArticle;
 {/*<article className='media'>
         <VoteButtons votes={props.votes}
           voteArticle={props.voteArticle.bind(null, props.article_id)}

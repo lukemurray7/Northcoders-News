@@ -22,7 +22,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
     display: inline-block;
     position: relative;
     height: 20px;
-    width: 60px;
+    width: 50px;
     margin: 5px;
     vertical-align: bottom;
     padding-bottom: 7px;
@@ -155,6 +155,16 @@ a {
 .entry .buttons li+li {
     padding-left: 4px;
 }
+.comments {
+    color: #888;
+    font-weight: bold;
+    padding: 0 1px;
+}
+.share {
+    color: #888;
+    font-weight: bold;
+    padding: 0 1px;
+}
 
 .clearleft {
     clear: left;
@@ -218,3 +228,4 @@ a {
     line-height: 12px;
     border-top-left-radius: 7px;
 }
+
