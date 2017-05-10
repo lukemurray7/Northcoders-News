@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './NavBar';
-import logo from '../../public/logo.png';
 
 const App = React.createClass({
   render: function () {

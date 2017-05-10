@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllComments, voteArticle, fetchAllArticles } from '../actions/actions';
+import { fetchAllArticles } from '../actions/fetch_articles';
+import { fetchAllComments } from '../actions/fetch_comments';
+import { voteArticle } from '../actions/vote_article';
 import { getCommentsSortByVote } from '../reducer/comments.reducer';
 import EachArticle from './EachArticle';
-import VoteButtons from './VoteButtons';
+import { voteComment } from '../actions/vote_comment';
+import Comments from './Comments';
+
 
 const Article = React.createClass({
 	componentDidMount() {
@@ -31,22 +35,14 @@ const Article = React.createClass({
 	generateComments(comments) {
 		return comments.map((comment, i) => {
 			return (
-				<div className='thing link' key={i}>
-					<p className="parent"></p>
-					<div className="midcol">
-						<div className="arrow up" role="button"><i onClick={voteArticle.bind(null, comment._id, 'up')} className="arrow fa fa-arrow-circle-up block" /></div>
-						<div className="score">{comment.votes}</div>
-						<div className="arrow down" role="button"><i onClick={voteArticle.bind(null, 'down')} className="arrow fa fa-arrow-circle-down block" /></div>
-					</div>
-
-						<div className="comment-box">
-							<p className="comment-body">{comment.body}</p>
-							<p className="comment-tagline">submitted 2 hours ago by {comment.created_by}</p>
-						</div>
-
-					<div className="child"></div>
-					<div className="clearleft"></div>
-				</div>
+				<Comments
+					key={i}
+					voteComment={this.props.voteComment}
+					body={comment.body}
+					votes={comment.votes}
+					id={comment._id}
+					createdBy={comment.created_by}
+				/>
 			);
 		});
 		// 583412915905f02e4c8e6dfd
@@ -65,10 +61,7 @@ const Article = React.createClass({
 	}
 });
 
-Article.propTypes = {
-	voteArticle: React.PropTypes.func.isRequired,
-	comments: React.PropTypes.array.isRequired
-};
+
 
 function mapDispatchToProps(dispatch) {
 	return {
@@ -81,6 +74,9 @@ function mapDispatchToProps(dispatch) {
 		getArticles: () => {
 			dispatch(fetchAllArticles());
 		},
+		voteComment: (id, vote) => {
+			dispatch(voteComment(id, vote));
+		}
 	};
 }
 

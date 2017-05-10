@@ -16,15 +16,16 @@ function commentsReducer (prevState = initialState, action) {
       });
     }
     case types.VOTE_COMMENT_SUCCESS: {
-     return Object.assign({}, prevState, {
-        byId: Object.assign({}, prevState.byId, {
-          [action.data._id]: Object.assign({}, prevState.byId[action.data._id], {
-          votes: action.data.votes
-          })
-        }),
-        loading: false,
-        error: null
-      });
+     let newState = Object.assign({}, prevState);
+            let myState = Object.assign({}, newState.byId);
+            if (action.vote === 'up') {
+                myState[action.comment_id].votes++;
+            }
+            if (action.vote === 'down') {
+                myState[action.comment_id].votes--;
+            }
+            newState.byId = myState;
+            return newState;
     }
     case types.FETCH_COMMENTS_SUCCESS: {
      return Object.assign({}, prevState, {

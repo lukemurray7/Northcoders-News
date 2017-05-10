@@ -8,7 +8,6 @@ const initialState = {
 
 function articlesReducer (prevState = initialState, action) {
   switch (action.type) {
-    case types.VOTE_ARTICLE_REQUEST:
     case types.FETCH_ARTICLES_REQUEST: {
       return Object.assign({}, prevState, {
         loading: true,

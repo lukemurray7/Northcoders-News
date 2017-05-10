@@ -1,5 +1,6 @@
 import React from 'react';
-import { fetchAllArticles, voteArticle } from '../actions/actions';
+import { fetchAllArticles } from '../actions/fetch_articles';
+import { voteArticle } from '../actions/vote_article';
 import { connect } from 'react-redux';
 import ArticleCard from './ArticleCard';
 import { getTopArticles } from '../reducer/articles.reducer';

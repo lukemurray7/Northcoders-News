@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllTopics } from '../actions/actions';
+import { fetchAllTopics } from '../actions/fetch_topics';
 import NavLink from './NavLink';
 import logo from '../../public/logo.png';
 
