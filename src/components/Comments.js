@@ -7,9 +7,9 @@ const Comments = function (props) {
         <div className='thing link'>
             <p className="parent"></p>
             <div className="midcol">
-                <div className="arrow up" role="button"><i onClick={props.voteComment.bind(null, props.id, 'up')} className="arrow fa fa-arrow-circle-up block" /></div>
+                <div className="arrow comment" role="button"><i onClick={props.voteComment.bind(null, props.id, 'up')} className="arrow fa fa-arrow-circle-up block" /></div>
                 <div className="score">{props.votes}</div>
-                <div className="arrow down" role="button"><i onClick={props.voteComment.bind(null, props.id, 'down')} className="arrow fa fa-arrow-circle-down block" /></div>
+                <div className="arrow comment" role="button"><i onClick={props.voteComment.bind(null, props.id, 'down')} className="arrow fa fa-arrow-circle-down block" /></div>
             </div>
 
             <div className="comment-box">
