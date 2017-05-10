@@ -12,9 +12,9 @@ import Article from './components/Article';
 import NotFound from './components/NotFound';
 import reducer from './reducer/index.reducer';
 
-import './css/bulma.css';
-import './css/font-awesome.css';
-import './css/app.css';
+// import './css/bulma.css';
+// import './css/font-awesome.css';
+import './css/test.css';
 
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, logger));

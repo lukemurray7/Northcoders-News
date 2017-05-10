@@ -1,11 +1,12 @@
 .header {
-  background-color: #23D160;
+  background-color: black;
   text-align: center;
-  padding: 2em;
+  padding: 1em;
 }
 
 .nav {
   margin-bottom: 2em;
+  background-color: black;
 }
 
 .header-title {
@@ -13,15 +14,35 @@
   text-align: left;
 }
 
-.image {
-  width: 10em;
-  display: inline-block;
-  margin: .5em auto;
+.northcoders-image {
+    display: block;
+    position: relative;
+    height: 30px;
+    margin: 5px;
 }
 
-.header-text {
+.news-text {
   color: #C31432;
-  font-size: 2.2em;
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 0;
+  margin-left: 5px;
+}
+
+.tabmenu {
+  list-style-type: none;
+  white-space: nowrap;
+  display: inline-block;
+  margin-top: 5px;
+  vertical-align: bottom;
+  position: absolute;
+  bottom: 0;
+}
+
+.tabmenu li {
+  display: inline;
+  font-weight: bold;
+  margin: 0px 3px;
 }
 
 .active {
@@ -39,3 +60,9 @@
 .fa-arrow-circle-up {
   margin: 0;
 }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, iframe {
+    margin: 0;
+    padding: 0;
+}
+
+

@@ -10,7 +10,7 @@ const ArticleList = React.createClass({
   },
   render () {
     return (
-      <div className="container">
+      <div className="spacer">
         {this.generateArticles(this.filterArticles(this.props.articles, this.props.params.topic))}
       </div>
     );
@@ -49,7 +49,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
   return {
-    articles: getTopArticles(state, 10)
+    articles: getTopArticles(state, 50)
   };
 }
 

@@ -4,7 +4,7 @@ import VoteButtons from './VoteButtons';
 
 const ArticleCard = function (props) {
   return (
-    <div className='box'>
+    <div className='link'>
       <article className='media'>
         <VoteButtons votes={props.votes}
           voteArticle={props.voteArticle.bind(null, props.article_id)}

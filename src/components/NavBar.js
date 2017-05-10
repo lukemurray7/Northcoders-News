@@ -1,31 +1,34 @@
-import React,{Component} from 'react';
-import {connect} from 'react-redux';
-import {fetchAllTopics} from '../actions/actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAllTopics } from '../actions/actions';
 import NavLink from './NavLink';
+import logo from '../../public/logo.png';
 
 class NavBar extends Component {
-  componentDidMount () {
-    this.props.getTopics(); 
+  componentDidMount() {
+    this.props.getTopics();
   }
-  render () {
+  render() {
     return (
-      <nav className="nav has-shadow">
-        <ul className="nav-center">
+      <nav className="header">
+          <img className="northcoders-image" src={logo} />
+          <h3 className="news-text">News</h3>
+        <ul className="tabmenu">
           {this.generateTopics(this.props.topics)}
         </ul>
       </nav>
     );
   }
-  generateTopics (topics) {
-    return [{title: 'all-topics'}].concat(topics).map((topic, i) => {
+  generateTopics(topics) {
+    return [{ title: 'all-topics' }].concat(topics).map((topic, i) => {
       topic.title = topic.title.toLowerCase();
       return (
         <li className="nav-item"
           key={i}
           value={topic.title}>
-            <NavLink to={`/topics/${topic.title}`}>
-              {topic.title}
-            </NavLink>
+          <NavLink to={`/topics/${topic.title}`}>
+            {topic.title}
+          </NavLink>
         </li>
       );
     });
@@ -37,7 +40,7 @@ NavBar.propTypes = {
   getTopics: React.PropTypes.func.isRequired
 };
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     getTopics: () => {
       dispatch(fetchAllTopics());
@@ -45,7 +48,7 @@ function mapDispatchToProps (dispatch) {
   };
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     topics: state.topics.data
   };
