@@ -16,25 +16,38 @@ function commentsReducer(prevState = initialState, action) {
         error: null
       });
     }
+
     case types.VOTE_COMMENT_SUCCESS: {
-      let newState = Object.assign({}, prevState);
-      let myState = Object.assign({}, newState.byId);
+      const newState = Object.assign({}, prevState);
+      const newComments = Object.assign({}, newState.byId);
+      const newComment = Object.assign({}, newComments[action.comment_id]);
       if (action.vote === 'up') {
-        myState[action.comment_id].votes++;
+        newComment.votes++;
       }
       if (action.vote === 'down') {
-        myState[action.comment_id].votes--;
+        newComment.votes--;
       }
-      newState.byId = myState;
+      newComments[action.comment_id] = newComment;
+      newState.byId = newComments;
+      newState.loading = false;
       return newState;
     }
+
+    case types.VOTE_COMMENT_ERROR: {
+      return Object.assign({}, prevState, {
+        byId: {},
+        loading: false,
+        error: action.data
+      });
+    }
+
     case types.FETCH_COMMENTS_SUCCESS: {
       return Object.assign({}, prevState, {
         byId: normaliseData(action.data),
         loading: false
       });
     }
-    
+
     case types.FETCH_COMMENTS_ERROR: {
       const newState = Object.assign({}, prevState);
       newState.error = action.data;
@@ -50,7 +63,6 @@ function commentsReducer(prevState = initialState, action) {
     case types.POST_COMMENT_SUCCESS: {
       const newState = Object.assign({}, prevState);
       let newById = Object.assign({}, newState.byId);
-      console.log(action.data[0])
       newById[action.data[0]._id] = action.data[0];
       newState.byId = newById;
       newState.loading = false;

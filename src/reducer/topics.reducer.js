@@ -8,22 +8,22 @@ const initialState = {
 
 function topicsReducer (prevState = initialState, action) {
   switch (action.type) {
-    case types.FETCH_COMMENTS_REQUEST: {
-      const newState = Object.assign({}, prevState);
-      newState.loading = true;
-      return newState;
+    case types.FETCH_TOPICS_REQUEST: {
+      return Object.assign({}, prevState,{
+        loading: true,
+      });
     }
     case types.FETCH_TOPICS_SUCCESS: {
-      const newState = Object.assign({}, prevState);
-      newState.data = action.data;
-      newState.loading = false;
-      return newState;
+      return Object.assign({}, prevState, {
+        data: action.data,
+        loading: false
+      });
     }
     case types.FETCH_TOPICS_ERROR: {
-      const newState = Object.assign({}, prevState);
-      newState.error = action.data;
-      newState.loading = false;
-      return newState;
+      return Object.assign({}, prevState, {
+        error: action.data,
+        loading: false
+      });
     }
     default:
       return prevState;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import {ROOT} from '../../config';
 
 export function fetchAllArticles () {
-    // thunk action
+
     return function (dispatch) {
         dispatch(fetchArticlesRequest());
         axios

@@ -17,7 +17,9 @@ export function voteArticle (article_id, vote) {
 }
 
 export function voteArticleRequest () {
-    return {type: types.VOTE_ARTICLE_REQUEST};
+    return {
+        type: types.VOTE_ARTICLE_REQUEST
+    };
 }
 
 export function voteArticleSuccess (data) {
@@ -31,6 +33,6 @@ export function voteArticleSuccess (data) {
 export function voteArticleError (error) {
     return {
         type: types.VOTE_ARTICLE_ERROR,
-        error
+        data: error
     };
 }

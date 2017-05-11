@@ -14,8 +14,13 @@ function articlesReducer (prevState = initialState, action) {
         error: null
       });
     }
+    case types.VOTE_ARTICLE_REQUEST: {
+      return Object.assign({}, prevState, {
+        loading: true,
+        error: null
+      });
+    }
     case types.VOTE_ARTICLE_SUCCESS: {
-      console.log(action.data._id)
      return Object.assign({}, prevState, {
         byId: Object.assign({}, prevState.byId, {
           [action.data._id]: Object.assign({}, prevState.byId[action.data._id], {
@@ -26,9 +31,15 @@ function articlesReducer (prevState = initialState, action) {
         error: null
       });
     }
+    case types.VOTE_ARTICLE_ERROR: {
+     return Object.assign({}, prevState, {
+        byId: {},
+        loading: false,
+        error: action.data
+      });
+    }
     case types.FETCH_ARTICLES_SUCCESS: {
      return Object.assign({}, prevState, {
-        data: action.data,
         byId: normaliseData(action.data),
         loading: false
       });

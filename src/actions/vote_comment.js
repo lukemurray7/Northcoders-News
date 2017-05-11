@@ -32,6 +32,6 @@ export function voteCommentSuccess (comment_id, vote, res) {
 export function voteCommentError (error) {
   return {
     type: types.VOTE_COMMENT_ERROR,
-    error
+    data: error
   };
 }
