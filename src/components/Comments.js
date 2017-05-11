@@ -1,10 +1,10 @@
 import React from 'react';
-// import NavLink from './NavLink';
 
 
 const Comments = function (props) {
+    const canDelete = props.createdBy === 'northcoder' ? <i onClick={props.deleteComment.bind(null, props.id)} className="fa fa-trash-o block" aria-hidden="true"></i> : '';
     return (
-        <div className='thing link'>
+        <div className='thing comment-overall link'>
             <p className="parent"></p>
             <div className="midcol">
                 <div className="arrow comment" role="button"><i onClick={props.voteComment.bind(null, props.id, 'up')} className="arrow fa fa-arrow-circle-up block" /></div>
@@ -14,11 +14,12 @@ const Comments = function (props) {
 
             <div className="comment-box">
                 <p className="comment-body">{props.body}</p>
-                <p className="comment-tagline">submitted 2 hours ago by {props.created_by}</p>
+                <p className="comment-tagline">submitted 2 hours ago by {props.createdBy}</p>
             </div>
 
             <div className="child"></div>
             <div className="clearleft"></div>
+            <div className="arrow delete-button" role="button">{canDelete}</div>
         </div>
 
     );

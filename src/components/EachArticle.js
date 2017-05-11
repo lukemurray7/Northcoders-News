@@ -5,7 +5,7 @@ import NavLink from './NavLink';
 const EachArticle = function (props) {
   return (
 
-    <div className='thing link'>
+    <div className='thing article-overall link'>
       <p className="parent"></p>
       <span className="rank">{props.num}</span>
       <div className="midcol">

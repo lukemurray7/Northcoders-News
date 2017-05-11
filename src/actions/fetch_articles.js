@@ -9,7 +9,7 @@ export function fetchAllArticles () {
         axios
             .get(`${ROOT}/articles`)
             .then(res => {
-                dispatch(fetchArticlesSuccess(res.data.articles));
+                dispatch(fetchArticlesSuccess(res.data.results));
             })
             .catch(err => {
                 dispatch(fetchArticlesError(err)); 

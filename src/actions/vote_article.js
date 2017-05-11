@@ -8,7 +8,7 @@ export function voteArticle (article_id, vote) {
         axios
             .put(`${ROOT}/articles/${article_id}?vote=${vote}`)
             .then((res) => {
-                dispatch(voteArticleSuccess(res.data));
+                dispatch(voteArticleSuccess(res.data.article));
             })
             .catch((error) => {
                 dispatch(voteArticleError(error.message));

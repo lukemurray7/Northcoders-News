@@ -6,7 +6,7 @@ import Comments from './Comments';
 const ArticleCard = function (props) {
   return (
 
-    <div className='thing link'>
+    <div className='thing article-mainpage link'>
       <p className="parent"></p>
       <span className="rank">{props.num}</span>
       <div className="midcol">

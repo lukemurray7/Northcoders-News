@@ -6,7 +6,9 @@ import { voteArticle } from '../actions/vote_article';
 import { getCommentsSortByVote } from '../reducer/comments.reducer';
 import EachArticle from './EachArticle';
 import { voteComment } from '../actions/vote_comment';
+import { deleteComment} from '../actions/delete_comments';
 import Comments from './Comments';
+import CommentBox from './CommentBox';
 
 
 const Article = React.createClass({
@@ -25,7 +27,11 @@ const Article = React.createClass({
 				<div className="content">
 					<div className="spacer">
 						<div classID="siteTable" className="sitetable linklisting">
+							<p className="comments-are-here-text"><b>Comments:</b></p>
 							{this.generateComments(this.props.comments)}
+						</div>
+						<div>
+							<CommentBox articleId={this.props.params.article_id}/>
 						</div>
 					</div>
 				</div>
@@ -42,6 +48,7 @@ const Article = React.createClass({
 					votes={comment.votes}
 					id={comment._id}
 					createdBy={comment.created_by}
+					deleteComment={this.props.deleteComment}
 				/>
 			);
 		});
@@ -76,6 +83,9 @@ function mapDispatchToProps(dispatch) {
 		},
 		voteComment: (id, vote) => {
 			dispatch(voteComment(id, vote));
+		},
+		deleteComment: (id) => {
+			dispatch(deleteComment(id));
 		}
 	};
 }
@@ -88,17 +98,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Article);
-
-
-{/*<ul className="box">Comments:
-					{this.generateComments(this.props.comments)}
-				</ul>*/}
-
-{/*<li className="box" key={i}>
-					<VoteButtons votes={comment.votes}
-						voteArticle={this.props.voteArticle.bind(null, comment._id)}
-					/>
-					<p>Text:{comment.body}</p>
-					<span>Created by: {comment.created_by}</span>
-					<span>Votes: {comment.votes}</span>
-				</li>*/}

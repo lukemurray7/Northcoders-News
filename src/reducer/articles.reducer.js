@@ -15,6 +15,7 @@ function articlesReducer (prevState = initialState, action) {
       });
     }
     case types.VOTE_ARTICLE_SUCCESS: {
+      console.log(action.data._id)
      return Object.assign({}, prevState, {
         byId: Object.assign({}, prevState.byId, {
           [action.data._id]: Object.assign({}, prevState.byId[action.data._id], {
