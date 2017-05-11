@@ -5,16 +5,17 @@ import {postComment} from '../actions/post_comment';
 
 function CommentBox (props) {
     return (
-        <div>
-            <form className='form' onSubmit={handleSubmit}>
+        <div className="commentBox">
+            <form className='commentForm' onSubmit={handleSubmit}>
                 <textarea
+                    className="text-area"
                     id='text-box'
                     type='text'
                     placeholder='Add your comment here...'
                     onChange={handleChange}
                     value={props.textInput}
                 />
-                <input id='button' className="button" type='submit' value='Post' />
+                <input id='button' className="addCommentButton" type='submit' value='Post' />
             </form>
         </div>
     );

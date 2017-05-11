@@ -14,7 +14,7 @@ class NavBar extends Component {
         <div id="sr-header-area">
           <div className="width-clip">
             <div className="mySubreddits">
-              <span>MY SUBREDDITS</span>
+              <span>MY NCNEWS</span>
             </div>
             <div className="sr-list">
               <ul className="flat-list sr-bar">
@@ -26,33 +26,33 @@ class NavBar extends Component {
               </ul>
               <span className="seperator">&nbsp;|&nbsp;</span>
                 <ul className="flat-list sr-bar">
-                <li>All</li>
+                <li>NCNEWS</li>
                   <span className="seperator">-</span>
-                <li>Funny</li>
+                <li>WORLDNEWS</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>TODAYILEARNED</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>PICS</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>VIDEOS</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>GAMING</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>GIFS</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>ANIMATION</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>AWW</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>DOGS</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>MILDLYINTERESTING</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>MOVIES</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>SOMETHING</li>
                   <span className="seperator">-</span>
-                <li>Random</li>
+                <li>NORTHCODER</li>
                 
               </ul>
 
