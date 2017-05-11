@@ -7,8 +7,9 @@ const initialState = {
   textInput: ''
 };
 
-function commentsReducer(prevState = initialState, action) {
+function commentsReducer (prevState = initialState, action) {
   switch (action.type) {
+    case types.POST_COMMENT_REQUEST:
     case types.VOTE_COMMENT_REQUEST:
     case types.FETCH_COMMENTS_REQUEST: {
       return Object.assign({}, prevState, {
@@ -69,6 +70,13 @@ function commentsReducer(prevState = initialState, action) {
       newState.textInput = '';
       return newState;
     }
+    case types.POST_COMMENT_ERROR: {
+      return Object.assign({}, prevState, {
+        loading: false,
+        byId: {},
+        error: action.data
+      });
+    }
     case types.DELETE_COMMENT_REQUEST: {
       const newState = Object.assign({}, prevState);
       newState.loading = true;
@@ -79,12 +87,12 @@ function commentsReducer(prevState = initialState, action) {
       let newComments = Object.assign({}, newState.byId);
       delete newComments[action.comment_id];
       newState.byId = newComments;
-      newState.fetching = false;
+      newState.loading = false;
       return newState;
     }
     case types.DELETE_COMMENT_ERROR: {
       const newState = Object.assign({}, prevState);
-      newState.error = action.err;
+      newState.error = action.data;
       newState.loading = false;
       return newState;
     }
@@ -93,14 +101,14 @@ function commentsReducer(prevState = initialState, action) {
   }
 }
 
-function normaliseData(data) {
+function normaliseData (data) {
   return data.reduce(function (acc, item) {
     acc[item._id] = item;
     return acc;
   }, {});
 }
 
-export function getCommentsSortByVote(state) {
+export function getCommentsSortByVote (state) {
   return Object.keys(state.comments.byId)
     .reduce(function (acc, id) {
       return acc.concat(state.comments.byId[id]);

@@ -8,7 +8,6 @@ export function deleteComment (id) {
     axios
       .delete(`${ROOT}/comments/${id}`)
       .then((res) => {
-        console.log(res)
         dispatch(deleteCommentSuccess(id));
       })
       .catch((err) => {
@@ -33,6 +32,6 @@ export function deleteCommentSuccess (id) {
 export function deleteCommentError (err) {
   return {
     type: types.DELETE_COMMENT_ERROR,
-    err
+    data: err
   };
 }
