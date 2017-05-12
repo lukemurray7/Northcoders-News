@@ -5,6 +5,7 @@ import { fetchCommentsError, fetchCommentsRequest, fetchCommentsSuccess } from '
 import { deleteCommentError, deleteCommentSuccess, deleteCommentRequest } from '../src/actions/delete_comments';
 import { postCommentError, postCommentSuccess, postCommentRequest } from '../src/actions/post_comment';
 
+
 describe('comments reducer', () => {
     it('exists', () => {
         expect(reducer).to.be.a('function');
@@ -236,15 +237,14 @@ describe('comments reducer', () => {
                 textInput: ''
             };
             const myComment = {
-                belongs_to: "58e9fe0fdc4b72723f545a4f",
-                body: "ahhh↵",
+                belongs_to: '58e9fe0fdc4b72723f545a4f',
+                body: 'ahhh↵',
                 created_at: 1494497014741,
-                created_by: "northcoder",
+                created_by: 'northcoder',
                 votes: 0,
                 __v: 0,
-                _id: "591472791413d9001167bd43",
+                _id: '591472791413d9001167bd43',
             };
-
 
 
             const action = postCommentSuccess([myComment]);

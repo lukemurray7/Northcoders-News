@@ -10,7 +10,6 @@ export function postComment (articleId, comment) {
           'comment': comment
         })
         .then((res) => {
-          console.log(res.data.comment)
           dispatch(postCommentSuccess(res.data.comment));
         })
         .catch(err => {

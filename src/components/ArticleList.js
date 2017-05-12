@@ -6,10 +6,10 @@ import ArticleCard from './ArticleCard';
 import { getTopArticles } from '../reducer/articles.reducer';
 
 const ArticleList = React.createClass({
-  componentDidMount() {
+  componentDidMount () {
     this.props.getArticles();
   },
-  render() {
+  render () {
     return (
       <div className="content">
         <div className="spacer">
@@ -20,22 +20,27 @@ const ArticleList = React.createClass({
       </div>
     );
   },
-  generateArticles(articles) {
-    return articles.map((article, i) => {
-      return (
-        <ArticleCard key={i}
-          num={i + 1}
-          title={article.title}
-          votes={article.votes}
-          comments={article.comments}
-          article_id={article._id}
-          voteArticle={this.props.voteArticle}
-          createdBy={article.created_by}
-        />
-      );
-    });
+  generateArticles (articles) {
+    if (articles) {
+      return articles.map((article, i) => {
+        return (
+          <ArticleCard key={i}
+            num={i + 1}
+            title={article.title}
+            votes={article.votes}
+            comments={article.comments}
+            article_id={article._id}
+            voteArticle={this.props.voteArticle}
+            createdBy={article.created_by}
+          />
+        );
+      });
+    } else
+    return (
+      <i className="fa fa-cog" aria-hidden="true"></i>
+    );
   },
-  filterArticles(articles, topic) {
+  filterArticles (articles, topic) {
     if (!topic || topic === 'all-topics') return articles;
     return articles.filter((article) => {
       return article.belongs_to === topic;
@@ -43,7 +48,7 @@ const ArticleList = React.createClass({
   }
 });
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     getArticles: () => {
       dispatch(fetchAllArticles());
@@ -54,7 +59,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     articles: getTopArticles(state, 50)
   };

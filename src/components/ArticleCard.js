@@ -1,11 +1,10 @@
 import React from 'react';
 import NavLink from './NavLink';
-import Comments from './Comments';
 
 
 const ArticleCard = function (props) {
   return (
-
+    
     <div className='thing article-mainpage link'>
       <p className="parent"></p>
       <span className="rank">{props.num}</span>
@@ -17,7 +16,7 @@ const ArticleCard = function (props) {
       <NavLink to={`/articles/${props.article_id}`}>
         <div className="entry">
           <p className="title">{props.title}</p>
-          <p className="tagline">submitted 2 hours ago by {props.createdBy}</p>
+          <p className="tagline">submitted by {props.createdBy}</p>
           <ul className="flat-list buttons">
             <li className="comments">{props.comments} comments</li>
             <li className="share">Share</li>

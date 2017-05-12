@@ -7,7 +7,7 @@ export function deleteComment (id) {
     dispatch(deleteCommentRequest());
     axios
       .delete(`${ROOT}/comments/${id}`)
-      .then((res) => {
+      .then(() => {
         dispatch(deleteCommentSuccess(id));
       })
       .catch((err) => {

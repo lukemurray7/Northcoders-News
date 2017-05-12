@@ -12,13 +12,13 @@ import CommentBox from './CommentBox';
 
 
 const Article = React.createClass({
-	componentDidMount() {
+	componentDidMount () {
 		if (Object.keys(this.props.articles).length === 0) {
 			this.props.getArticles();
 		}
 		this.props.getComments(this.props.params.article_id);
 	},
-	render() {
+	render () {
 		if (Object.keys(this.props.articles).length === 0) return (<p>Loading</p>);
 
 		return (
@@ -38,7 +38,7 @@ const Article = React.createClass({
 			</section>
 		);
 	},
-	generateComments(comments) {
+	generateComments (comments) {
 		return comments.map((comment, i) => {
 			return (
 				<Comments
@@ -49,12 +49,13 @@ const Article = React.createClass({
 					id={comment._id}
 					createdBy={comment.created_by}
 					deleteComment={this.props.deleteComment}
+					time={comment.created_at}
 				/>
 			);
 		});
 		// 583412915905f02e4c8e6dfd
 	},
-	generateArticle(article) {
+	generateArticle (article) {
 		return (
 			<EachArticle title={article.title}
 				body={article.body}
@@ -69,8 +70,7 @@ const Article = React.createClass({
 });
 
 
-
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
 	return {
 		getComments: (param) => {
 			dispatch(fetchAllComments(param));
@@ -90,7 +90,7 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
 	return {
 		articles: state.articles.byId,
 		comments: getCommentsSortByVote(state)

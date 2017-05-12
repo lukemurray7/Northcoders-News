@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Comments = function (props) {
-    const canDelete = props.createdBy === 'northcoder' ? <i onClick={props.deleteComment.bind(null, props.id)} className="fa fa-trash-o fa-2x block" aria-hidden="true"></i> : '';
+
     return (
         <div className='thing comment-overall link'>
             <p className="parent"></p>
@@ -12,9 +12,9 @@ const Comments = function (props) {
                 <div className="arrow comment" role="button"><i onClick={props.voteComment.bind(null, props.id, 'down')} className="arrow fa fa-arrow-circle-down block" /></div>
             </div>
 
-            <div className="comment-box">
+            <div className="entry">
                 <p className="comment-body">{props.body}</p>
-                <p className="comment-tagline">submitted 2 hours ago by {props.createdBy}</p>
+                <p className="comment-tagline">submitted by {props.createdBy}</p>
             </div>
 
             <div className="child"></div>

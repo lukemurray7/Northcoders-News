@@ -4,8 +4,6 @@ import { voteArticleError, voteArticleRequest, voteArticleSuccess } from '../src
 import { fetchArticlesError, fetchArticlesRequest, fetchArticlesSuccess } from '../src/actions/fetch_articles';
 
 
-
-
 describe('articles reducer', () => {
     it('exists', () => {
         expect(reducer).to.be.a('function');
@@ -31,24 +29,24 @@ describe('articles reducer', () => {
                 error: null
             };
             const obj1 = {
-                belongs_to : "football",
-                body: "Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United's manager was clearly impressed with the Austrian's performance.",
+                belongs_to : 'football',
+                body: 'Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United\'s manager was clearly impressed with the Austrian\'s performance.',
                 comments: 6,
-                created_by: "tickle122",
-                title: "What does Jose Mourinho's handwriting say about his personality?",
+                created_by: 'tickle122',
+                title: 'What does Jose Mourinho\'s handwriting say about his personality?',
                 votes: 8,
                 __v: 0,
-                _id: "58e9fe0cdc4b72723f545a32"
+                _id: '58e9fe0cdc4b72723f545a32'
             };
             const obj2 = {
-                belongs_to : "cooking",
-                body: "Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United's manager was clearly impressed with the Austrian's performance.",
+                belongs_to : 'cooking',
+                body: 'Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United\'s manager was clearly impressed with the Austrian\'s performance.',
                 comments: 6,
-                created_by: "tickle122",
-                title: "What does Jose Mourinho's handwriting say about his personality?",
+                created_by: 'tickle122',
+                title: 'What does Jose Mourinho\'s handwriting say about his personality?',
                 votes: 8,
                 __v: 0,
-                _id: "58e9fe0cdc4b72723f545a33"
+                _id: '58e9fe0cdc4b72723f545a33'
             };
 
             const action = fetchArticlesSuccess([obj1, obj2]);

@@ -5,10 +5,10 @@ import NavLink from './NavLink';
 import logo from '../../public/logo.png';
 
 class NavBar extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.getTopics();
   }
-  render() {
+  render () {
     return (
       <nav className="header">
         <div id="sr-header-area">
@@ -72,7 +72,7 @@ class NavBar extends Component {
       </nav>
     );
   }
-  generateTopics(topics) {
+  generateTopics (topics) {
     return [{ title: 'all-topics' }].concat(topics).map((topic, i) => {
       topic.title = topic.title.toLowerCase();
       return (
@@ -93,7 +93,7 @@ NavBar.propTypes = {
   getTopics: React.PropTypes.func.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     getTopics: () => {
       dispatch(fetchAllTopics());
@@ -101,7 +101,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     topics: state.topics.data
   };

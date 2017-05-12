@@ -1,5 +1,4 @@
 import React from 'react';
-import NavLink from './NavLink';
 
 
 const EachArticle = function (props) {
@@ -13,13 +12,11 @@ const EachArticle = function (props) {
         <div className="score">{props.votes}</div>
         <div className="arrow down" role="button"><i onClick={props.voteArticle.bind(null, props.article_id, 'down')} className="arrow fa fa-arrow-circle-down block" /></div>
       </div>
-      <NavLink to={`/articles/${props.article_id}`}>
         <div className="entry">
           <p className="title">{props.title}</p>
           <p className="article-body">{props.body}</p>
-          <p className="tagline">submitted 2 hours ago by {props.createdBy}</p>
+          <p className="tagline">submitted by {props.createdBy}</p>
         </div>
-      </NavLink>
       <div className="child"></div>
       <div className="clearleft"></div>
     </div>
@@ -38,7 +35,7 @@ EachArticle.propTypes = {
 };
 
 export default EachArticle;
-{/*<article className='media'>
+{/* <article className='media'>
         <VoteButtons votes={props.votes}
           voteArticle={props.voteArticle.bind(null, props.article_id)}
         />

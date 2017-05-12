@@ -4,7 +4,6 @@ body {
     z-index: 1;
     min-height: 100%;
     display: block;
-    font-size: 9px;
 }
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, iframe {
@@ -92,8 +91,7 @@ a {
 }
 .comment-tagline {
     color: #888;
-    font-size: .9em;
-    margin: 10px;
+    font-size: 0.9em;
 }
 
 .rank {
@@ -307,4 +305,8 @@ a {
     right: 0px;
     bottom: 2px;
     position: absolute;
+}
+
+.comment-body {
+    font-size: 1.1em;
 }
