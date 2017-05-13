@@ -19,13 +19,13 @@ const Article = React.createClass({
 		this.props.getComments(this.props.params.article_id);
 	},
 	render () {
-		if (Object.keys(this.props.articles).length === 0) return (<p>Loading</p>);
-
-		return (
-			<section className="container">
-				{this.generateArticle(this.props.articles[this.props.params.article_id])}
-				<div className="content">
-					<div className="spacer">
+		// const userCanDeleteComment = props.createdBy === 'northcoder' ? <i onClick={props.deleteComment.bind(null, props.id)} className="fa fa-trash-o fa-lg block" aria-hidden="true"></i> : '';
+		const commentList = this.props.loading ? <div className="scene">
+          <img className="car" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/car.svg" alt="" />
+          <img className="poof" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/poof.svg" alt="" />
+          <img className="sign" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/sign.svg" alt="" />
+          <em>LOADING...</em>
+        </div> : <div className="spacer">
 						<div classID="siteTable" className="sitetable linklisting">
 							<p className="comments-are-here-text"><b>Comments:</b></p>
 							{this.generateComments(this.props.comments)}
@@ -33,7 +33,14 @@ const Article = React.createClass({
 						<div>
 							<CommentBox articleId={this.props.params.article_id}/>
 						</div>
-					</div>
+					</div>;
+		if (Object.keys(this.props.articles).length === 0) return (<p>Loading</p>);
+
+		return (
+			<section className="container">
+				{this.generateArticle(this.props.articles[this.props.params.article_id])}
+				<div className="content">
+					{commentList}
 				</div>
 			</section>
 		);
@@ -93,7 +100,9 @@ function mapDispatchToProps (dispatch) {
 function mapStateToProps (state) {
 	return {
 		articles: state.articles.byId,
-		comments: getCommentsSortByVote(state)
+		comments: getCommentsSortByVote(state),
+		loading: state.comments.loading,
+		loadingArticles: state.articles.loading
 	};
 }
 

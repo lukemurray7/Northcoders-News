@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Comments = function (props) {
-
+    const userCanDeleteComment = props.createdBy === 'northcoder' ? <i onClick={props.deleteComment.bind(null, props.id)} className="fa fa-trash-o fa-lg block" aria-hidden="true"></i> : '';
     return (
         <div className='thing comment-overall link'>
             <p className="parent"></p>
@@ -19,7 +19,7 @@ const Comments = function (props) {
 
             <div className="child"></div>
             <div className="clearleft"></div>
-            <div className="arrow delete-button" role="button"><i onClick={props.deleteComment.bind(null, props.id)} className="fa fa-trash-o fa-lg block" aria-hidden="true"></i></div>
+            <div className="arrow delete-button" role="button">{userCanDeleteComment}</div>
         </div>
 
     );

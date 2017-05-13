@@ -67,7 +67,7 @@ class NavBar extends Component {
           </ul>
         </div>
         <div className="header-bottom-right">
-          <span className="user">Want to join? Log in or sign up in seconds.</span>
+          <span className="user">Join in with the discussion in the comments below!</span>
         </div>
       </nav>
     );

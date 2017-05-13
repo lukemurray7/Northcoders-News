@@ -9,7 +9,18 @@ const ArticleList = React.createClass({
   componentDidMount () {
     this.props.getArticles();
   },
+  
   render () {
+    if (this.props.loading) {
+      return (
+        <div className="scene">
+          <img className="car" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/car.svg" alt="" />
+          <img className="poof" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/poof.svg" alt="" />
+          <img className="sign" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/sign.svg" alt="" />
+          <em>LOADING...</em>
+        </div>
+      );
+    } else
     return (
       <div className="content">
         <div className="spacer">
@@ -61,7 +72,8 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
   return {
-    articles: getTopArticles(state, 50)
+    articles: getTopArticles(state, 50),
+    loading: state.articles.loading
   };
 }
 

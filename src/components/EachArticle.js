@@ -35,17 +35,3 @@ EachArticle.propTypes = {
 };
 
 export default EachArticle;
-{/* <article className='media'>
-        <VoteButtons votes={props.votes}
-          voteArticle={props.voteArticle.bind(null, props.article_id)}
-        />
-        <NavLink to={`/articles/${props.article_id}`}>
-          <div className='media-content'>
-            <div className='content'>
-              <div>{props.body}</div>
-              <h3 className='title is-3'>{props.title}</h3>
-            </div>
-            {props.comments ? <h4>Comments: {props.comments}</h4> : null}
-          </div>
-        </NavLink>
-      </article>*/}
