@@ -4,9 +4,9 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 ## Getting Started
 
-To see the project in action please click [here]().
+To see the project in action please click [here](http://northcoders-news.surge.sh/).
 
-And this is a link to the [API]()
+And this is a link to the [API](https://github.com/lukemurray77/NC-NEWS-API)
 
 ## Prerequisites
 
