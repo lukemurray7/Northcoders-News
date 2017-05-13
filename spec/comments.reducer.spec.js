@@ -98,14 +98,12 @@ describe('comments reducer', () => {
         it('handles action VOTE_COMMENT_REQUEST correctly', () => {
             const initialState = {
                 byId: {},
-                loading: false,
                 error: null,
                 textInput: ''
             };
             const action = voteCommentRequest();
             const expectedState = {
                 byId: {},
-                loading: true,
                 error: null,
                 textInput: ''
             };
@@ -162,7 +160,6 @@ describe('comments reducer', () => {
                 byId: {
                     1: { body: 'im going to be deleted' }
                 },
-                loading: false,
                 error: null
             };
             const action = deleteCommentRequest();
@@ -170,7 +167,7 @@ describe('comments reducer', () => {
                 byId: {
                     1: { body: 'im going to be deleted' }
                 },
-                loading: true,
+                loading: false,
                 error: null
             };
             expect(reducer(initialState, action)).to.eql(expectedState);
@@ -223,11 +220,11 @@ describe('comments reducer', () => {
             const action = postCommentRequest();
             const expectedState = {
                 byId: {},
-                loading: true,
+                loading: false,
                 error: null
             };
+            console.log(initialState, reducer(initialState, action))
             expect(reducer(initialState, action)).to.eql(expectedState);
-            expect(initialState).to.not.eql(expectedState);
         });
         it('should handle POST_COMMENT_SUCCESS correctly', () => {
             const initialState = {

@@ -9,15 +9,23 @@ const initialState = {
 
 function commentsReducer (prevState = initialState, action) {
   switch (action.type) {
-    case types.POST_COMMENT_REQUEST:
-    case types.VOTE_COMMENT_REQUEST:
     case types.FETCH_COMMENTS_REQUEST: {
       return Object.assign({}, prevState, {
         loading: true,
         error: null
       });
     }
-
+    case types.VOTE_COMMENT_REQUEST: {
+      return Object.assign({}, prevState, {
+        error: null
+      });
+    }
+    case types.POST_COMMENT_REQUEST: {
+      return Object.assign({}, prevState, {
+        error: null,
+        loading: false
+      });
+    }
     case types.VOTE_COMMENT_SUCCESS: {
       const newState = Object.assign({}, prevState);
       const newComments = Object.assign({}, newState.byId);
@@ -79,7 +87,7 @@ function commentsReducer (prevState = initialState, action) {
     }
     case types.DELETE_COMMENT_REQUEST: {
       const newState = Object.assign({}, prevState);
-      newState.loading = true;
+      newState.loading = false;
       return newState;
     }
     case types.DELETE_COMMENT_SUCCESS: {

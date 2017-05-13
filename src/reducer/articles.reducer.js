@@ -16,7 +16,6 @@ function articlesReducer (prevState = initialState, action) {
     }
     case types.VOTE_ARTICLE_REQUEST: {
       return Object.assign({}, prevState, {
-        loading: true,
         error: null
       });
     }

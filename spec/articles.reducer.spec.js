@@ -84,7 +84,7 @@ describe('articles reducer', () => {
             };
             const action = voteArticleRequest();
             const expectedState = {
-                loading: true,
+                loading: false,
                 error: null
             };
             expect(reducer(initialState, action)).to.eql(expectedState);
