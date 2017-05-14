@@ -223,7 +223,6 @@ describe('comments reducer', () => {
                 loading: false,
                 error: null
             };
-            console.log(initialState, reducer(initialState, action));
             expect(reducer(initialState, action)).to.eql(expectedState);
         });
         it('should handle POST_COMMENT_SUCCESS correctly', () => {
