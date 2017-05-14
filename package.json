@@ -9,8 +9,7 @@
     "precommit": "npm test",
     "dev": "webpack-dev-server -d --config webpack.config.js --progress --colors",
     "start": "node ./index.js",
-    "build": "webpack --config webpack.prod.config.js --progress --colors",
-    "postinstall": "webpack --config webpack.prod.config.js --progress --colors"
+    "build": "webpack --config webpack.prod.config.js --progress --colors"
   },
   "author": "",
   "license": "ISC",
